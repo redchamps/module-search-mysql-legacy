@@ -10,7 +10,7 @@ use Magento\Framework\DB\Ddl\Table;
 use Magento\Framework\DB\Select;
 
 use Swissup\SearchMysqlLegacy\SearchAdapter\Mysql\Filter\Builder;
-use Swissup\SearchMysqlLegacy\SearchAdapter\Mysql\Query\Builder\Match;
+use Swissup\SearchMysqlLegacy\SearchAdapter\Mysql\Query\Builder\Matcher;
 use Swissup\SearchMysqlLegacy\SearchAdapter\Mysql\Query\MatchContainer;
 use Swissup\SearchMysqlLegacy\SearchAdapter\Mysql\Query\QueryContainer;
 use Swissup\SearchMysqlLegacy\SearchAdapter\Mysql\Query\QueryContainerFactory;
@@ -18,7 +18,7 @@ use Swissup\SearchMysqlLegacy\SearchAdapter\Mysql\Query\QueryContainerFactory;
 use Magento\Framework\Search\EntityMetadata;
 use Magento\Framework\Search\Request\Query\BoolExpression as BoolQuery;
 use Magento\Framework\Search\Request\Query\Filter as FilterQuery;
-use Magento\Framework\Search\Request\Query\Match as MatchQuery;
+use Magento\Framework\Search\Request\Query\MatchQuery;
 use Magento\Framework\Search\Request\QueryInterface as RequestQueryInterface;
 use Magento\Framework\Search\RequestInterface;
 
@@ -95,7 +95,7 @@ class Mapper
      * @param ResourceConnection $resource
      * @param EntityMetadata $entityMetadata
      * @param QueryContainerFactory $queryContainerFactory
-     * @param Query\Builder\Match $matchBuilder
+     * @param Query\Builder\Matcher $matchBuilder
      * @param TemporaryStorageFactory $temporaryStorageFactory
      * @param IndexBuilderInterface[] $indexProviders
      * @param string $relevanceCalculationMethod
@@ -109,7 +109,7 @@ class Mapper
         ResourceConnection $resource,
         EntityMetadata $entityMetadata,
         QueryContainerFactory $queryContainerFactory,
-        Match $matchBuilder,
+        Matcher $matchBuilder,
         TemporaryStorageFactory $temporaryStorageFactory,
         array $indexProviders,
         // array $indexProviders = [],
